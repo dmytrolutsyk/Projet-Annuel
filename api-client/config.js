@@ -1,6 +1,6 @@
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://admin:<password>@cluster0-sluc0.azure.mongodb.net/test?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 3000;
-const dbName = process.env.DBNAME || 'notes-api';
+const dbName = process.env.DBNAME || 'annonces-api';
 
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
