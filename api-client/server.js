@@ -302,5 +302,65 @@ app.post('/signin', async function(req, res){
     }else {
             return res.status(403).json({ 'error': 'Cet identifiant est inconnu' });
         }
+});
+
+app.patch('/users/:id', async function(req, res) {
+    var token = req.get('x-access-token');
+    jwt.verify(token, JWT_SIGN_SECRET, async (err, data) => {
+        if (err) {
+            console.log(err)
+            res.status(401).send('Utilisateur non connecté');
+        } else {
+            const col = db.collection('users');
+            var username = req.body.username;
+            var password = req.body.password;
+            var nom = req.body.nom;
+            var prenom = req.body.prenom;
+            var adresse = req.body.adresse;
+            var ville = req.body.ville;
+            var code_postal = req.body.code_postal;
+            var birthdate = req.body.birthdate;
+            var email = req.body.email;
+            var status_user = req.body.status_user;
+            let lastUpdatedAt = dateNow();
+            if(username.length === 0 && password.length === 0 && nom.length === 0 && prenom.length === 0 && adresse.length === 0 && ville.length === 0 && code_postal.length === 0 && birthdate.length === 0 && email.length === 0 && status_user.length === 0){
+                res.status(400).send({error: 'Aucun contenu n\'a été saisi'});
+            } else {
+                // const annonce = await col.findOne({_id: ObjectId(req.params.id)});
+                const user = await db.collection('users').findOne({ _id: ObjectId(data.userId) });
+                if (!user){
+                    res.status(404).send({error: 'Cet identifiant est inconnu'});
+                    return;
+                }
+                else{
+                    console.log("user trouvé !!!!!")
+                }
+                // if (user.userID.toString() !== user._id.toString()) {
+                //     res.status(403).json({ error: "Accès non autorisé à cet utilisateur" });
+                //   } else {
+                    await col.updateOne(
+
+                        {_id: ObjectId(req.params.id)},
+                        {$set: {username: req.body.username,
+                            password: req.body.password,
+                            nom: req.body.nom,
+                            prenom: req.body.prenom,
+                            adresse: req.body.adresse,
+                            ville: req.body.ville,
+                            code_postal: req.body.code_postal,
+                            birthdate: req.body.birthdate,
+                            status_user: req.body.status_user,
+                            lastUpdatedAt: lastUpdatedAt}}
+                    );
+                    const newuser = await col.findOne({_id: ObjectId(req.params.id)});
+                    res.status(200).send({
+                        error: null,
+                        user: newuser
+                    });
+                // }
+            }
+        }
     });
+});
+
 
