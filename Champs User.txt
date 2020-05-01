@@ -1,0 +1,36 @@
+Civilité = [Homme,
+		Femme];
+
+Nom : String
+Prenom : String
+Pseudo : String
+Addresse :  String
+Code Postal : String/Int ?
+Telephone : String/Int ?
+Date de naissance : Date
+e-mail : String
+
+Occupation Professionnelle = [Cadre / Dirigeant ,
+Profession libérale ,
+Indépendant ,
+Technicien / Agent de maîtrise,
+Professeur / Enseignant,
+Artisan,
+Employé de bureau ou administratif,
+Service aux particuliers,
+Commerçant,
+Ouvrier,
+Retraité,
+Etudiant,
+Femme / Homme au foyer,
+Militaire,
+Sans ] ; 
+
+Statut = [Particulier,
+	Association,
+	Entité Publique]
+
+
+
+
+
