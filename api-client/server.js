@@ -363,4 +363,31 @@ app.patch('/users/:id', async function(req, res) {
     });
 });
 
+ /* GET user profil */
+ app.get('/users', async function(req, res) {
+    var token = req.get('x-access-token');
+    jwt.verify(token, JWT_SIGN_SECRET, async (err, data) => {
+        if (err) {
+            res.status(401).send('Utilisateur non connecté');
+        } else {
+                try {
+                    let userID =  data.userId;
+                    let user = await db.collection('users').findOne({ _id: ObjectId(userID) });
+                    //console.log(user);
+                    res.send({
+                        error: null,
+                        user: user
+                    });
+                } catch (err) {
+                   // console.log(err);
+                    res.send({
+                        error: err
+                    });
+                }            
+        }
+    });
+    
+});
+
+
 
