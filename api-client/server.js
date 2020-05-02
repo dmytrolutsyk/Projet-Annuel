@@ -389,5 +389,47 @@ app.patch('/users/:id', async function(req, res) {
     
 });
 
+/* Delete user */
+app.delete('/users/:id', async function(req, res) {
+    var token = req.get('x-access-token');
+    jwt.verify(token, JWT_SIGN_SECRET, async (err, data) => {
+        if (err) {
+            res.status(401).send('Utilisateur non connecté');
+        } else {
+            try {
+                const col = db.collection('users');
+                //DELETE ONE DOCUMENT
+                let id_user = req.params.id;
+                let userResults = await col.find().toArray();
+                let resultForEach = 0;
+                
+                let userToBeDeleted;
+                userResults.forEach(function (resForEach) {
+                    if(resForEach._id.equals(id_user)){
+                        resultForEach = 1;
+                        userToBeDeleted = resForEach;
+                    }
+                });
+                if(resultForEach === 0) {
+                    res.status(404).send({error: 'Cet identifiant est inconnu'});
+                //} else if(userToBeDeleted.userID !== data.userId){
+                //    res.status(403).send({error: 'Accès non autorisé à cette annonce'})
+                } else {
+                    await col.deleteOne({_id: userToBeDeleted._id});
+                    res.send({
+                        error: null,
+                        "event" : "Le compte a bien été goumé de la surface"
+                    });
+                    console.log("User deleted")
+                }
+            } catch (err) {
+                res.send({
+                    error: err
+                });
+            }
+        }
+    });
+});
+
 
 
