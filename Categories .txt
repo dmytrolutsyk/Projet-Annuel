@@ -1,0 +1,20 @@
+## Champs Categories
+
+Categorie = ["Vehicule",
+"Livres ",
+"Animaux",
+"Velos",
+"Sports",
+"Musique",
+"Jardinage",
+"Mobilier",
+"Electroménager",
+"Jeux & Jouets",
+"Vetements",
+"Accessoires",
+"Informatique",
+"Services",
+"Medical",
+"Fournitures de Bureau",
+"Outils",
+"Autres" ]
