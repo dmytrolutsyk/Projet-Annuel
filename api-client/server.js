@@ -158,15 +158,28 @@ app.put('/annonces', async function(req, res) {
                 const col = db.collection('annonces');   
                 //INSERT ONE DOCUMENT
                 let userID = data.userId;
-                let content = req.body.content;
+                let title = req.body.title;
+                let description = req.body.description;
+                let category = req.body.category;
+                let mail = req.body.mail;
                 let createdAt = dateNow();
+                let phoneNumber = req.body.phoneNumber;
+                let photos = req.body != undefined? req.body.photos : null;
+                let city = req.body.city;
                 let lastUpdatedAt = null;
-                if(content.length === 0){
+                
+                if(title.length === 0 || description.length === 0 || category.length === 0 || mail.length === 0 || phoneNumber.length === 0 || city.length === 0){
                     res.status(400).send({error: 'Aucun contenu n\'a été saisi'});
                 } else {
                     let resInsert = await col.insertOne({
                         userID,
-                        content,
+                        title,
+                        description,
+                        category,
+                        mail,
+                        phoneNumber,
+                        city,
+                        photos,
                         createdAt,
                         lastUpdatedAt
                     });
@@ -189,9 +202,15 @@ app.patch('/annonces/:id', async function(req, res) {
             res.status(401).send('Utilisateur non connecté');
         } else {
             const col = db.collection('annonces');
-            let content = req.body.content;
+            let title = req.body.title;
+            let description = req.body.description;
+            let category = req.body.category;
+            let mail = req.body.mail;
+            let phoneNumber = req.body.phoneNumber;
+            let photos = req.body != undefined? req.body.photos : null;
+            let city = req.body.city;
             let lastUpdatedAt = dateNow();
-            if(content.length === 0){
+            if(title.length === 0 || description.length === 0 || category.length === 0 || mail.length === 0 || phoneNumber.length === 0 || city.length === 0 || photos.length === 0){
                 res.status(400).send({error: 'Aucun contenu n\'a été saisi'});
             } else {
                 const annonce = await col.findOne({_id: ObjectId(req.params.id)});
@@ -205,7 +224,18 @@ app.patch('/annonces/:id', async function(req, res) {
                   } else {
                     await col.updateOne(
                         {_id: ObjectId(req.params.id)},
-                        {$set: {content: req.body.content, lastUpdatedAt: lastUpdatedAt}}
+                        {$set: 
+                            {
+                                lastUpdatedAt: lastUpdatedAt,
+                                title: req.body.title,
+                                description: req.body.description,
+                                category: req.body.category,
+                                mail: req.body.mail,
+                                phoneNumber: req.body.phoneNumber,
+                                photos: req.body.photos,
+                                city: req.body.city
+                            }
+                     }
                     );
                     const newannonce = await col.findOne({_id: ObjectId(req.params.id)});
                     res.status(200).send({

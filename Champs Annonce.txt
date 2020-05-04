@@ -5,12 +5,13 @@ User : String
 Titre : String
 Description : String
 Categorie : String
-Photos : Contenu Image // Optionnel 
-Date + Heure 
+Photos : Contenu Image // Optionnel
 mail : String
 Numero de Telephone : Int
 Ville : String
 Geolocalisation
+createdAt: date
+lastUpdatedAt: date
 
 
 
