@@ -1,5 +1,6 @@
 ## Champs Annonces
 
+ID : Int
 User : String
 Titre : String
 Description : String
