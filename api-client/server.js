@@ -12,6 +12,9 @@ const app = express();
 const url = process.env.MONGODB_URI || 'mongodb://localhost:' + 27017 + '/annonces';
 const dbName = "annonces";
 const JWT_SIGN_SECRET ='secret';
+const multer = require('multer');
+var upload = multer({ dest: 'uploads/' })
+
 //IMPORTS DE TEST POUR IMAGE
 // let fs = require('fs');
 // let Gridfs = require('gridfs-stream');
@@ -213,10 +216,10 @@ app.patch('/annonces/:id', async function(req, res) {
             let category = req.body.category;
             let mail = req.body.mail;
             let phoneNumber = req.body.phoneNumber;
-            let photos = req.body != undefined? req.body.photos : null;
+            let photos = req.file != undefined? req.file.photos : null;
             let city = req.body.city;
             let lastUpdatedAt = dateNow();
-            if(title.length === 0 || description.length === 0 || category.length === 0 || mail.length === 0 || phoneNumber.length === 0 || city.length === 0 || photos.length === 0){
+            if(title.length === 0 || description.length === 0 || category.length === 0 || mail.length === 0 || phoneNumber.length === 0 || city.length === 0){
                 res.status(400).send({error: 'Aucun contenu n\'a été saisi'});
             } else {
                 const annonce = await col.findOne({_id: ObjectId(req.params.id)});
@@ -238,7 +241,7 @@ app.patch('/annonces/:id', async function(req, res) {
                                 category: req.body.category,
                                 mail: req.body.mail,
                                 phoneNumber: req.body.phoneNumber,
-                                photos: req.body.photos,
+                                photos: upload.single('req.file.photos'),
                                 city: req.body.city
                             }
                      }
