@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   }
                   if (snapshot.hasData) {
-                    final List<Annonces> annonces = snapshot.data;
+                    final List<Annonce> annonces = snapshot.data;
                     if (annonces.isEmpty) {
                       return Center(
                         child: Text("Empty list"),
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemCount: annonces.length,
                       itemBuilder: (BuildContext context, int index) {
                         return AnnonceItem(
-                          annonces: annonces[index],
+                          annonce: annonces[index],
                         );
                       },
                     );
