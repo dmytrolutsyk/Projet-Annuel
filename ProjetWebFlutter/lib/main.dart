@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ProjetWebFlutter/apiService.dart';
+import 'package:ProjetWebFlutter/annonces.dart';
+import 'package:ProjetWebFlutter/annonceItems.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,11 +22,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -68,13 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
               })),
       body: ListView(
         children: <Widget>[
-          ListTile(
-            title: Center(
+          Center(
               child: Text(
                 'Toute les annonces :',
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
               ),
-            ),
           ),
           ListTile(
             title: Center(child: Text('Annonce 1')),
@@ -84,6 +85,48 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           ListTile(
             title: Center(child: Text('Annonce 3')),
+          ),
+          FutureBuilder(
+            future: ApiServices.getAnnonces(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.waiting:
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                  break;
+                case ConnectionState.done:
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text("Error: ${snapshot.error}"),
+                    );
+                  }
+                  if (snapshot.hasData) {
+                    final List<Annonces> annonces = snapshot.data;
+                    if (annonces.isEmpty) {
+                      return Center(
+                        child: Text("Empty list"),
+                      );
+                    }
+                    return ListView.builder(
+                      itemCount: annonces.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return AnnonceItem(
+                          annonces: annonces[index],
+                        );
+                      },
+                    );
+                  } else {
+                    return Center(
+                      child: Text("No data"),
+                    );
+                  }
+                  break;
+                default:
+                  return Container();
+                  break;
+              }
+            },
           ),
         ],
       ),
