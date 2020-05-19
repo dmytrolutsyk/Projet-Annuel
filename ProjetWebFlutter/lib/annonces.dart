@@ -1,4 +1,4 @@
-class Annonces {
+class Annonce {
   final title;
   final description;
   final category;
@@ -9,10 +9,10 @@ class Annonces {
   final city;
   final lastUpdatedAt;
 
-  Annonces(this.title, this.description, this.category, this.mail, this.createdAt, this.phoneNumber, this.photos, this.city, this.lastUpdatedAt) ;
+  Annonce(this.title, this.description, this.category, this.mail, this.createdAt, this.phoneNumber, this.photos, this.city, this.lastUpdatedAt) ;
 
-  factory Annonces.fromJson(Map<String, dynamic> json) {
-    return Annonces(
+  factory Annonce.fromJson(Map<String, dynamic> json) {
+    return Annonce(
       json["title"],
       json["description"],
       json["category"],
