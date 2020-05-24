@@ -1,0 +1,17 @@
+page pour la gui :
+
+1. Inscription :
+utilisation de la route /signin
+avec les chammps , userid, password
+
+2. Connexion:
+utilisation de la route /signup
+avec les champs, userid, password
+
+3. Edit e profil:
+utilisation de la route /app.patch('/users/:id)
+
+4. 
+
+
+
