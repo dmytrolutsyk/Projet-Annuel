@@ -1,33 +1,36 @@
 package com.example.ft_android.Retrofit
 
+import android.util.Base64
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    var retrofit: Retrofit? = null
+    private val AUTH =
+        "Basic " + Base64.encodeToString("belalkhan:123456".toByteArray(), Base64.NO_WRAP)
 
-    fun getClient(baseUrl: String): Retrofit? {
-        if (retrofit == null) {
-            //TODO While release in Google Play Change the Level to NONE
-            val interceptor = HttpLoggingInterceptor()
-            interceptor.level = HttpLoggingInterceptor.Level.BODY
-            val client = OkHttpClient.Builder()
-                .addInterceptor(interceptor)
-                .connectTimeout(100, java.util.concurrent.TimeUnit.SECONDS)
-                .readTimeout(100, java.util.concurrent.TimeUnit.SECONDS)
-                .build()
+    private const val BASE_URL = "https://findandtrade.herokuapp.com/"
 
-            retrofit = Retrofit.Builder()
-                .client(client)
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
+    private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            val original = chain.request()
 
-        return retrofit
+            val requestBuilder = original.newBuilder()
+                .addHeader("Content-Type", "application/json")
+                .method(original.method(), original.body())
 
+            val request = requestBuilder.build()
+            chain.proceed(request)
+        }.build()
+
+    val instance: APIService = run {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+
+        retrofit.create(APIService::class.java)
     }
 }

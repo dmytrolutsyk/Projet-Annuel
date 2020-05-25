@@ -2,17 +2,15 @@ package com.example.ft_android
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ft_android.Retrofit.APIService
-import com.example.ft_android.Retrofit.ApiUtils
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.Response
+import com.example.ft_android.Retrofit.RetrofitClient
+import com.example.ft_android.models.DefaultResponse
+import retrofit2.Call
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             val Passwordcpt = Password.text.toString()
 
             ////////////////////////////////////////////////////////////////////////////////////////
+            /*
             //Variable declaration
             var mAPIService: APIService? = null
             //After oncreate
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Registration>, t: Throwable) {
 
                 }
-            })
+            })*/
             ////////////////////////////////////////////////////////////////////////////////////////
 
             val intent = Intent(this, Homepage::class.java)
@@ -71,6 +70,18 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
             }
             else {
+                RetrofitClient.instance.createUser(Usernamecpt, Passwordcpt)
+                    .enqueue(object: retrofit2.Callback<DefaultResponse> {
+                        override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                            Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(applicationContext,"zebi marche pas", duration).show()
+                        }
+
+                        override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                            Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                        }
+
+                    })
                 startActivity(intent)
             }
         }
