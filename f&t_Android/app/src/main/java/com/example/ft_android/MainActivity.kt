@@ -48,10 +48,7 @@ class MainActivity : AppCompatActivity() {
 
                         override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
                             Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
-<<<<<<< HEAD
                             Log.i("", "post status to API" + response.body()!!.message)
-=======
->>>>>>> c51292c632976f1ba072bc2930763eedb84e46e6
                             Toast.makeText(applicationContext,"yallah", duration).show()
                         }
 

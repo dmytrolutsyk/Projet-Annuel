@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<Button
-    android:id="@+id/ValidateBtn"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="162dp"
-    android:layout_marginTop="150dp"
-    android:layout_marginEnd="161dp"
-    android:layout_marginBottom="150dp"
-    android:text="Sign in"
-    android:background="@drawable/border"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    <Button
+        android:id="@+id/ValidateBtn"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="150dp"
+        android:background="@drawable/border"
+        android:text="Sign in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-<TextView
+    <Button
+        android:id="@+id/ValidateBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:text="Sign up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ValidateBtn" />
+
+    <TextView
     android:id="@+id/TitleText"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
