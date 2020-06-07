@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
+
 class Annonce {
-  final title;
-  final description;
-  final category;
-  final mail;
-  final createdAt;
-  final phoneNumber;
-  final photos;
-  final city;
-  final lastUpdatedAt;
+  final String title;
+  final String description;
+  final String category;
+  final String mail;
+  final DateTime createdAt;
+  final int phoneNumber;
+  final FileImage photos;
+  final String city;
+  final DateTime lastUpdatedAt;
 
   Annonce(this.title, this.description, this.category, this.mail, this.createdAt, this.phoneNumber, this.photos, this.city, this.lastUpdatedAt) ;
 

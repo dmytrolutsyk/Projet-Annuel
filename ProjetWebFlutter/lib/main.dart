@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/apiService.dart';
 import 'package:ProjetWebFlutter/annonces.dart';
 import 'package:ProjetWebFlutter/annonceItems.dart';
+import 'package:ProjetWebFlutter/newNotice.dart';
+import 'package:ProjetWebFlutter/profil.dart';
+import 'package:ProjetWebFlutter/appBar.dart';
+
+
 
 void main() {
   runApp(MyApp());
@@ -33,275 +38,148 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            widget.title,
-          ),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.home),
-              tooltip: 'Accueil',
-              onPressed: () {
-                _MyHomePageState();
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.add),
-              tooltip: 'Créer une annonce',
-              onPressed: () {
-                _NewNotice(context);
-              },
-            ),
-            IconButton(
-              icon: const Icon(Icons.account_circle),
-              tooltip: 'Profil',
-              onPressed: () {
-                _profil(context);
-              },
-            ),
-          ],
-          leading: IconButton(
-              icon: const Icon(Icons.search),
-              tooltip: 'Rechercher une annonce',
-              onPressed: () {
-              })),
-      body: ListView(
-        children: <Widget>[
-          Center(
-              child: Text(
-                'Toute les annonces :',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
-              ),
-          ),
-          ListTile(
-            title: Center(child: Text('Annonce 1')),
-          ),
-          ListTile(
-            title: Center(child: Text('Annonce 2')),
-          ),
-          ListTile(
-            title: Center(child: Text('Annonce 3')),
-          ),
-          FutureBuilder(
-            future: ApiServices.getAnnonces(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.waiting:
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                  break;
-                case ConnectionState.done:
-                  if (snapshot.hasError) {
-                    return Center(
-                      child: Text("Error: ${snapshot.error}"),
-                    );
-                  }
-                  if (snapshot.hasData) {
-                    final List<Annonce> annonces = snapshot.data;
-                    if (annonces.isEmpty) {
-                      return Center(
-                        child: Text("Empty list"),
-                      );
-                    }
-                    return ListView.builder(
-                      itemCount: annonces.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return AnnonceItem(
-                          annonce: annonces[index],
-                        );
-                      },
-                    );
-                  } else {
-                    return Center(
-                      child: Text("No data"),
-                    );
-                  }
-                  break;
-                default:
-                  return Container();
-                  break;
-              }
-            },
-          ),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Center(child: Text('Find and trade')),
+        ),
+        body: Padding(
+            padding: EdgeInsets.all(50),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      'Connexion',
+                      style: TextStyle(
+                          color: Colors.green,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 30),
+                    )),
+                Container(
+                  padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
+                  child: TextField(
+                    controller: nameController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nom d\'utilisateur',
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(150, 10, 150, 20),
+                  child: TextField(
+                    obscureText: true,
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Mot de passe',
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(50),
+                  child: Container(
+                      height: 50,
+                      padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: Center(
+                        child: RaisedButton(
+                          textColor: Colors.white,
+                          color: Colors.green,
+                          child: Text('Validé'),
+                          onPressed: () {
+                            print(nameController.text);
+                            print(passwordController.text);
+                            home(context);
+                          },
+                        ),
+                      )),
+                ),
+                Container(
+                    child: Row(
+                      children: <Widget>[
+                        Text('Vous n\'avez pas de compte ?'),
+                        FlatButton(
+                          textColor: Colors.green,
+                          child: Text(
+                            'S\'inscrire',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                          onPressed: () {
+                            //signup screen
+                          },
+                        )
+                      ],
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    ))
+              ],
+            )));
   }
 }
 
-void _NewNotice(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(
-    builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            title: const Text('Ajouter une annonce'),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home),
-                tooltip: 'Accueil',
-                onPressed: () {
-                  _home(context);
-                },
+  void home(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(
+      builder: (BuildContext context) {
+        return Scaffold(
+          appBar: barNav(),
+          body: ListView(
+            children: <Widget>[
+              Center(
+                child: Text(
+                  'Toute les annonces :',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
+                ),
               ),
-              IconButton(
-                icon: const Icon(Icons.add),
-                tooltip: 'Créer une annonce',
-                onPressed: () {
-                  _NewNotice(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.account_circle),
-                tooltip: 'Profil',
-                onPressed: () {
-                  _profil(context);
+              FutureBuilder(
+                future: ApiServices.getAnnonces(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.waiting:
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                      break;
+                    case ConnectionState.done:
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text("Error: ${snapshot.error}"),
+                        );
+                      }
+                      if (snapshot.hasData) {
+                        final List<Annonce> annonces = snapshot.data;
+                        if (annonces.isEmpty) {
+                          return Center(
+                            child: Text("Empty list"),
+                          );
+                        }
+                        return ListView.builder(
+                          itemCount: annonces.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return AnnonceItem(
+                              annonce: annonces[index],
+                            );
+                          },
+                        );
+                      } else {
+                        return Center(
+                          child: Text("No data"),
+                        );
+                      }
+                      break;
+                    default:
+                      return Container();
+                      break;
+                  }
                 },
               ),
             ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
-        body: const Center(
-          child: Text(
-            'Ici il faudra un formulaire',
-            style: TextStyle(fontSize: 24),
           ),
-
-        ),
-      );
-    },
-  ));
-}
-
-
-void _home(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(
-    builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            title: const Text('Find & Trade'),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home),
-                tooltip: 'Accueil',
-                onPressed: () {
-                  _home(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.add),
-                tooltip: 'Créer une annonce',
-                onPressed: () {
-                  _NewNotice(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.account_circle),
-                tooltip: 'Profil',
-                onPressed: () {
-                  _profil(context);
-                },
-              ),
-            ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
-
-                    title: Center(
-                      child: Text(
-                        'Toute les annonces :',
-                        style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
-                      ),
-                    ),
-                  ),
-                  ListTile(
-                    title: Center(child: Text('Annonce 1')),
-                  ),
-                  ListTile(
-                    title: Center(child: Text('Annonce 2')),
-                  ),
-                  ListTile(
-                    title: Center(child: Text('Annonce 3')),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    },
-  ));
-}
-
-
-void _profil(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(
-    builder: (BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-            centerTitle: true,
-            title: const Text('Profil'),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.home),
-                tooltip: 'Accueil',
-                onPressed: () {
-                  _home(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.add),
-                tooltip: 'Créer une annonce',
-                onPressed: () {
-                  _NewNotice(context);
-                },
-              ),
-              IconButton(
-                icon: const Icon(Icons.account_circle),
-                tooltip: 'Profil',
-                onPressed: () {
-                  _profil(context);
-                },
-              ),
-            ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
-        body: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text("Se connecter"),
-            ),
-            ListTile(
-              title: Text("S'inscrire"),
-            ),
-            Icon(
-              Icons.account_circle,
-            )
-          ],
-        ),
-      );
-    },
-  ));
-}
-
-
+        );
+      },
+    ));
+  }
