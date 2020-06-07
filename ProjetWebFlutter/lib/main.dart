@@ -4,7 +4,6 @@ import 'package:ProjetWebFlutter/annonces.dart';
 import 'package:ProjetWebFlutter/annonceItems.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'package:ProjetWebFlutter/profil.dart';
-import 'package:ProjetWebFlutter/appBar.dart';
 
 
 
@@ -126,7 +125,37 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.push(context, MaterialPageRoute(
       builder: (BuildContext context) {
         return Scaffold(
-          appBar: barNav(),
+          appBar: AppBar(
+              centerTitle: true,
+              title: const Text('Profil'),
+              actions: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.home),
+                  tooltip: 'Accueil',
+                  onPressed: () {
+                    home(context);
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add),
+                  tooltip: 'Créer une annonce',
+                  onPressed: () {
+                    NewNotice(context);
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.account_circle),
+                  tooltip: 'Profil',
+                  onPressed: () {
+                    profil(context);
+                  },
+                ),
+              ],
+              leading: IconButton(
+                  icon: const Icon(Icons.search),
+                  tooltip: 'Rechercher une annonce',
+                  onPressed: () {
+                  })),
           body: ListView(
             children: <Widget>[
               Center(
