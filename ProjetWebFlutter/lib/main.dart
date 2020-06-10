@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return Scaffold(
           appBar: AppBar(
               centerTitle: true,
-              title: const Text('Profil'),
+              title: const Text('Annonces'),
               actions: <Widget>[
                 IconButton(
                   icon: const Icon(Icons.home),
@@ -160,7 +160,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               Center(
                 child: Text(
-                  'Toute les annonces :',
+                  'Toutes les annonces :',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
                 ),
               ),
