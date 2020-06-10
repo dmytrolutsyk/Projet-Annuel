@@ -2,16 +2,11 @@ package com.example.ft_android
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ft_android.Retrofit.RetrofitClient
-import com.example.ft_android.models.DefaultResponse
-import retrofit2.Call
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,15 +33,15 @@ class MainActivity : AppCompatActivity() {
             if (Usernamecpt == "" || Passwordcpt == ""){
                 toast.show()
             }
-            else {
-                RetrofitClient.instance.createUser(Usernamecpt, Passwordcpt)
-                    .enqueue(object: retrofit2.Callback<DefaultResponse> {
-                        override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+            /*else {
+                NetworkProvider.weaponApi.WeaponDTO(Usernamecpt, Passwordcpt)
+                    .enqueue(object: retrofit2.Callback<Weapon> {
+                        override fun onFailure(call: Call<Weapon>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                             Toast.makeText(applicationContext,"zebi marche pas", duration).show()
                         }
 
-                        override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                        override fun onResponse(call: Call<Weapon>, response: Response<Weapon>) {
                             Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
                             Log.i("", "post status to API" + response.body()!!.message)
                             Toast.makeText(applicationContext,"yallah", duration).show()
@@ -54,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
                     })
                 startActivity(intent)
-            }
+            }*/
         }
     }
 }
