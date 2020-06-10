@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".recyclerview.WeaponsActivity" />
         <activity android:name=".Homepage"></activity>
         <activity android:name=".Annonce" />
         <activity android:name=".MainActivity">
