@@ -1,30 +1,53 @@
-//
-//  HomeViewController.swift
-//  iOS
-//
-//  Created by Norman on 02/05/2020.
-//  Copyright © 2020 Find&Trade. All rights reserved.
-//
+
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: UITabBarController {
+    
+  
+    let listingServices: ListingService = ListingService()
+    var listings:[Listing]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
+        tabBar.barTintColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        self.navigationItem.setHidesBackButton(true, animated: true);
+        setupTabBar()
+    }
 
-        // Do any additional setup after loading the view.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
 
-    /*
-    // MARK: - Navigation
+    
+     func setupTabBar() {
+        
+        self.listingServices.getListing { (listings) in
+            print(listings)
+            self.listings = listings
+            let listingController = UINavigationController(rootViewController: ListingsCollectionViewController.newInstance(listings: listings))
+            listingController.tabBarItem.image = UIImage(named: "")
+            listingController.tabBarItem.title = "Annonces"
+            
+            let loginController = UINavigationController(rootViewController: LoginViewController())
+            loginController.tabBarItem.image = UIImage(named: "")
+            loginController.tabBarItem.title = "Login"
+            
+            let messagingController = UINavigationController(rootViewController: MessagingViewController())
+            messagingController.tabBarItem.image = UIImage(named: "")
+            messagingController.tabBarItem.title = "Messaging"
+            
+            let userController = UINavigationController(rootViewController: UserProfileViewController())
+            userController.tabBarItem.image = UIImage(named: "")
+            userController.tabBarItem.title = "User"
+            
+            self.viewControllers = [listingController, loginController,messagingController,userController]
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        }
+        
+        
+        
+        }
 }
