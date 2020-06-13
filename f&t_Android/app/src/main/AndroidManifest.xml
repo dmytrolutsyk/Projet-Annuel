@@ -6,14 +6,18 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".NavActivity"
+            android:label="@string/title_activity_nav"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".recyclerview.WeaponsActivity" />
-        <activity android:name=".Homepage"></activity>
+        <activity android:name=".Homepage" />
         <activity android:name=".Annonce" />
         <activity android:name=".MainActivity">
             <intent-filter>
