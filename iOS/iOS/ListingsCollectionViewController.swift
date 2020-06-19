@@ -45,11 +45,9 @@ class ListingsCollectionViewController: UIViewController , UICollectionViewDeleg
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(addTapped))
     
         navigationController?.title = "Annonces"
-    
     }
     
    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
 
@@ -63,13 +61,11 @@ class ListingsCollectionViewController: UIViewController , UICollectionViewDeleg
         
         UpSwipe.direction = UISwipeGestureRecognizer.Direction.down
         cell.addGestureRecognizer(UpSwipe)
-        
         cell.title!.text = listings[indexPath.row].title
         cell.user!.text = listings[indexPath.row].pseudo
         cell.category!.text = listings[indexPath.row].idCategory
         cell.user!.textColor = UIColor.white
         cell.user!.backgroundColor = UIColor.darkGray
-        
         cell.picture?.image = UIImage(named: "listing")
         
         

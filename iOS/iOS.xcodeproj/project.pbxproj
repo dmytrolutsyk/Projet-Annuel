@@ -96,12 +96,14 @@
 		8E0BC04D245E067900794056 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8E573F702490736D007BAD2D /* Messaging */,
+				8EADF48F249C546400714B2A /* Signup */,
+				8EADF48E249C543000714B2A /* Login */,
 				8E573F6B24907310007BAD2D /* User */,
 				8EFBE337248FA54600D11738 /* Listing */,
 				8E6E9F6A24816D50000CBEF0 /* Scenes */,
 				8EB5D3F1247B5DEF00AC9FCD /* Services */,
 				8EB5D3EE247B5CB600AC9FCD /* Models */,
+				8E573F702490736D007BAD2D /* Messaging */,
 				8E0BC04E245E067900794056 /* AppDelegate.swift */,
 				8EFBE33C248FA56000D11738 /* HomeViewController.swift */,
 				8EFBE33A248FA56000D11738 /* HomeViewController.xib */,
@@ -133,12 +135,28 @@
 		8E6E9F6A24816D50000CBEF0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8EADF48E249C543000714B2A /* Login */ = {
+			isa = PBXGroup;
+			children = (
 				8E7CA2AF247B0E3D00B36359 /* LoginViewController.swift */,
 				8E7CA2B0247B0E3D00B36359 /* LoginViewController.xib */,
+				8E1BFB36247C97F7000146EE /* LoginFactory.swift */,
+				8E1BFB34247C97CF000146EE /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8EADF48F249C546400714B2A /* Signup */ = {
+			isa = PBXGroup;
+			children = (
 				8E1BFB38247EA0B4000146EE /* SignupViewController.swift */,
 				8E1BFB39247EA0B4000146EE /* SignupViewController.xib */,
 			);
-			path = Scenes;
+			path = Signup;
 			sourceTree = "<group>";
 		};
 		8EB5D3EE247B5CB600AC9FCD /* Models */ = {
@@ -153,7 +171,6 @@
 		8EB5D3F1247B5DEF00AC9FCD /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8E1BFB36247C97F7000146EE /* LoginFactory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -164,7 +181,6 @@
 				8EFBE338248FA56000D11738 /* Listing.swift */,
 				8EFBE346248FA57000D11738 /* ListingFactory.swift */,
 				8EFBE347248FA57000D11738 /* ListingService.swift */,
-				8E1BFB34247C97CF000146EE /* LoginService.swift */,
 				8EFBE348248FA57000D11738 /* ListingsCollectionViewController.swift */,
 				8EFBE345248FA57000D11738 /* ListingsCollectionViewController.xib */,
 				8EFBE33B248FA56000D11738 /* ListingCollectionViewCell.swift */,
