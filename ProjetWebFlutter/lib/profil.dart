@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ProjetWebFlutter/main.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
-
+import 'home.dart';
 
 
 
@@ -34,6 +33,13 @@ void profil(BuildContext context) {
                   profil(context);
                 },
               ),
+              IconButton(
+                icon: const Icon(Icons.settings_power),
+                tooltip: 'Déconnexion',
+                onPressed: () {
+                  Navigator.pushNamed(context, '/signin');
+                },
+              )
             ],
             leading: IconButton(
                 icon: const Icon(Icons.search),
