@@ -7,4 +7,9 @@
     <string name="nav_home">Home</string>
     <string name="nav_notif">Notification</string>
     <string name="nav_account">Account</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_account">Account</string>
 </resources>
