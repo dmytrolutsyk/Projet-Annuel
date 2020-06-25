@@ -18,8 +18,8 @@
         tools:layout="@layout/fragment_account" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.ft_android.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_new_ad"
+        android:name="com.example.ft_android.ui.new_ad.NewAdFragment"
+        android:label="@string/title_new_ad"
+        tools:layout="@layout/fragment_new_add" />
 </navigation>
