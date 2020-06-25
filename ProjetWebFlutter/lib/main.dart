@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
         home: MyHomePage(
           title: 'Find & Trade',
         ));
-
   }
 }
 
