@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
             var Password = findViewById<View>(R.id.PasswordField) as EditText
             val Passwordcpt = Password.text.toString()
 
-            val intent = Intent(this, Homepage::class.java)
+            //val intent = Intent(this, Homepage::class.java)
+            val intent = Intent(this, BottomNavigationActivity::class.java)
             intent.putExtra("Username", Usernamecpt)
             intent.putExtra("Password", Passwordcpt)
 
@@ -33,8 +34,8 @@ class MainActivity : AppCompatActivity() {
             if (Usernamecpt == "" || Passwordcpt == ""){
                 toast.show()
             }
-            /*else {
-                NetworkProvider.weaponApi.WeaponDTO(Usernamecpt, Passwordcpt)
+            else {
+                /*NetworkProvider.weaponApi.WeaponDTO(Usernamecpt, Passwordcpt)
                     .enqueue(object: retrofit2.Callback<Weapon> {
                         override fun onFailure(call: Call<Weapon>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -47,9 +48,9 @@ class MainActivity : AppCompatActivity() {
                             Toast.makeText(applicationContext,"yallah", duration).show()
                         }
 
-                    })
+                    })*/
                 startActivity(intent)
-            }*/
+            }
         }
     }
 }

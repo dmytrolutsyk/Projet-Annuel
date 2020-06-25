@@ -1,7 +1,5 @@
 package com.example.ft_android.service.dto
 
-import com.example.ft_android.model.Weapon
-import com.example.ft_android.model.WeaponType
 
 class WeaponMapper {
 
@@ -16,10 +14,10 @@ class WeaponMapper {
 
         return weaponList
     }*/
-    fun map(dto: List<WeaponDTO>) = dto.map { weaponDTO -> mapWeapon(weaponDTO) }
+    /*fun map(dto: List<WeaponDTO>) = dto.map { weaponDTO -> mapWeapon(weaponDTO) }
 
     fun mapWeapon(dto: WeaponDTO): Weapon {
         val type = WeaponType.getById(dto.type)
         return Weapon(type, dto.name, dto.pictureUrl)
-    }
+    }*/
 }

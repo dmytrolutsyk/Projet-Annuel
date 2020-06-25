@@ -33,7 +33,7 @@ object RetrofitClient {
         retrofit.create(APIService::class.java)
     }
 }*/
-package com.example.ft_android.service
+/*package com.example.ft_android.service
 
 import com.example.ft_android.model.Weapon
 import com.example.ft_android.service.dto.WeaponDTO
@@ -93,4 +93,4 @@ object NetworkProvider {
 interface NetworkListener<T> {
     fun onSuccess(weapons: List<Weapon>)
     fun onError(t: Throwable)
-}
+}*/
