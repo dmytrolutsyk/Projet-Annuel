@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'home.dart';
+import 'dart:html';
+import 'image.dart';
 
 
 
@@ -46,16 +48,34 @@ void profil(BuildContext context) {
                 tooltip: 'Rechercher une annonce',
                 onPressed: () {
                 })),
-          body: Center(
-            child: CalendarDatePicker(
-              initialDate: (DateTime.now()),
-              firstDate: DateTime(2015),
-              lastDate: DateTime(2030),
-              onDateChanged: (DateTime value) {  },
+          body: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(100.0),
+                child: Container(
+                  height: 290.0,
+                  width: 290.0,
 
-            ),
+                  child: FloatingActionButton.extended(
+                    onPressed: () {
+                      startWebFilePicker();
+                    },
+                    icon: Icon(
+                        Icons.account_circle,
+                      size: 80,
+                    ),
+                    shape: RoundedRectangleBorder(),
+                    label: Text("Choisir une photo de profil"),
+                  ),
+                ),
+              ),
+            ],
           )
       );
     },
   ));
 }
+
+
+
+
