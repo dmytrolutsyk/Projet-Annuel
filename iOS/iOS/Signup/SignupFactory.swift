@@ -1,5 +1,5 @@
 //
-//  LoginFactory.swift
+//  SignupFactory.swift
 //  Find & Trade
 //
 //  Created by Norman on 27/05/2020.
@@ -8,9 +8,12 @@
 
 import Foundation
 
-class LoginFactory: CustomStringConvertible {
+class SignupFactory: CustomStringConvertible {
      
-        
+   /*
+    
+    */
+    
     var email: String
     var password: String
     
@@ -42,3 +45,4 @@ class LoginFactory: CustomStringConvertible {
        }
     
 }
+
