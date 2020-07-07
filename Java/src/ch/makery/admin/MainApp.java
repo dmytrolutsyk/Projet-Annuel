@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -65,10 +66,11 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Find & Trade");
+        this.primaryStage.getIcons().add(new Image("https://diplomeo-static.com/news-files/0/400/461/kamal-hennou2-esgi.jpg"));
 
         initRootLayout();
-
-        showPersonOverview();
+        Person tempPerson = new Person();
+        showPersonOverview(tempPerson);
         //showAdOverview();
     }
 
@@ -93,8 +95,10 @@ public class MainApp extends Application {
 
     /**
      * Shows the person overview inside the root layout.
+     * @param tempPerson
+     * @return
      */
-    public void showPersonOverview() {
+    public boolean showPersonOverview(Person tempPerson) {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -111,6 +115,7 @@ public class MainApp extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     public boolean showAdOverview(Ad tempAd) {

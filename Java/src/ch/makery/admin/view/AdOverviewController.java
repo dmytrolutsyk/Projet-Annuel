@@ -2,6 +2,7 @@ package ch.makery.admin.view;
 
 import ch.makery.admin.MainApp;
 import ch.makery.admin.model.Ad;
+import ch.makery.admin.model.Person;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -140,5 +141,14 @@ public class AdOverviewController {
             
             alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void handleGotoPerson() {
+        Person tempPerson = new Person();
+        boolean okClicked = mainApp.showPersonOverview(tempPerson);
+        if (okClicked) {
+        }
+
     }
 }

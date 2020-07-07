@@ -57,6 +57,7 @@
                       <Button mnemonicParsing="false" onAction="#handleNewAd" text="New..." />
                         <Button mnemonicParsing="false" onAction="#handleEditAd" text="Edit..." />
                         <Button mnemonicParsing="false" onAction="#handleDeleteAd" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#handleGotoPerson" text="Person" />
                     </buttons>
                   </ButtonBar>
                </children>
