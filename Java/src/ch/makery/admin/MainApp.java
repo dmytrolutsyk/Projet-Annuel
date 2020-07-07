@@ -3,8 +3,8 @@ package ch.makery.admin;
 import java.io.IOException;
 
 import ch.makery.admin.model.Ad;
-import ch.makery.admin.view.AdEditDialogController;
-import ch.makery.admin.view.AdOverviewController;
+import ch.makery.admin.model.Connexion;
+import ch.makery.admin.view.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +16,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ch.makery.admin.model.Person;
-import ch.makery.admin.view.PersonEditDialogController;
-import ch.makery.admin.view.PersonOverviewController;
 
 public class MainApp extends Application {
 
@@ -29,6 +27,8 @@ public class MainApp extends Application {
      */
     private ObservableList<Person> personData = FXCollections.observableArrayList();
     private ObservableList<Ad> AdData = FXCollections.observableArrayList();
+    //private ObservableList<Connexion> ConnexionData = (ObservableList<Connexion>) FXCollections.emptyObservableMap();
+    private String ConnexionData;
 
     /**
      * Constructor
@@ -61,6 +61,10 @@ public class MainApp extends Application {
     public ObservableList<Ad> getAdData() {
         return AdData;
     }
+    public String getConnexionData() {
+        return ConnexionData;
+    }
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -69,8 +73,10 @@ public class MainApp extends Application {
         this.primaryStage.getIcons().add(new Image("file:Logo.jpg"));
 
         initRootLayout();
-        Person tempPerson = new Person();
-        showPersonOverview(tempPerson);
+        //Person tempPerson = new Person();
+        //showPersonOverview(tempPerson);
+        Connexion tempConnexion = new Connexion();
+        showConnexion(tempConnexion);
         //showAdOverview();
     }
 
@@ -130,6 +136,26 @@ public class MainApp extends Application {
 
             // Give the controller access to the main app.
             AdOverviewController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean showConnexion(Connexion tempConnexion) {
+        try {
+            // Load person overview.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/Connexion.fxml"));
+            AnchorPane Connexion = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            rootLayout.setCenter(Connexion);
+
+            // Give the controller access to the main app.
+            ConnexionController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {

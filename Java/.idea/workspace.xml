@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Projet-annuel/META-INF/Projet-annuel.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ch/makery/admin/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ch/makery/admin/MainApp.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,6 +87,7 @@
         <option value="XSLT Stylesheet" />
         <option value="JavaFXApplication" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -120,6 +122,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -134,13 +139,19 @@
       <recent name="D:\cours java\Projet-annuel\src" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Application.MainApp (1)">
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -152,6 +163,12 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
@@ -169,7 +186,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainApp (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="MainApp (1)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ch.makery.admin.MainApp" />
       <module name="Projet-annuel" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -258,7 +275,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainApp (1)" />
         <item itemvalue="Application.MainApp" />
         <item itemvalue="Application.MainApp (2)" />
       </list>
