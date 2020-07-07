@@ -1,4 +1,10 @@
-
+//
+//  HomeViewController.swift
+//  Find & Trade
+//
+//  Created by Norman on 27/05/2020.
+//  Copyright © 2020 Find&Trade. All rights reserved.
+//
 
 import UIKit
 
@@ -10,8 +16,9 @@ class HomeViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
-        tabBar.barTintColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+        // Do any additional setup after loading the view, typically from a nib.
+        view.backgroundColor = UIColor.white
+        tabBar.barTintColor = UIColor(red: 38/255, green: 196/255, blue: 133/255, alpha: 1)
         self.navigationItem.setHidesBackButton(true, animated: true);
         setupTabBar()
     }
@@ -24,30 +31,31 @@ class HomeViewController: UITabBarController {
     
      func setupTabBar() {
         
-        self.listingServices.getListing { (listings) in
-            print(listings)
+            self.listingServices.getListing { (listings) in
             self.listings = listings
+            
             let listingController = UINavigationController(rootViewController: ListingsCollectionViewController.newInstance(listings: listings))
             listingController.tabBarItem.image = UIImage(named: "")
             listingController.tabBarItem.title = "Annonces"
             
-            let loginController = UINavigationController(rootViewController: LoginViewController())
-            loginController.tabBarItem.image = UIImage(named: "")
-            loginController.tabBarItem.title = "Login"
+            let userinfoController = UINavigationController(rootViewController: UserProfileViewController())
+            userinfoController.tabBarItem.image = UIImage(named: "")
+            userinfoController.tabBarItem.title = "Profil"
             
             let messagingController = UINavigationController(rootViewController: MessagingViewController())
             messagingController.tabBarItem.image = UIImage(named: "")
-            messagingController.tabBarItem.title = "Messaging"
+            messagingController.tabBarItem.title = "Messages"
             
-            let userController = UINavigationController(rootViewController: UserProfileViewController())
-            userController.tabBarItem.image = UIImage(named: "")
-            userController.tabBarItem.title = "User"
+          //  let userController = UINavigationController(rootViewController: UserProfileViewController())
+           // userController.tabBarItem.image = UIImage(named: "")
+           // userController.tabBarItem.title = "User"
             
-            self.viewControllers = [listingController, loginController,messagingController,userController]
+          //  self.viewControllers = [listingController, loginController,messagingController,userController]
+                self.viewControllers = [listingController, userinfoController,messagingController]
 
+            
         }
         
-        
-        
         }
+
 }
