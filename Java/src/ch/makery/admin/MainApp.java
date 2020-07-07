@@ -66,7 +66,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Find & Trade");
-        this.primaryStage.getIcons().add(new Image("https://diplomeo-static.com/news-files/0/400/461/kamal-hennou2-esgi.jpg"));
+        this.primaryStage.getIcons().add(new Image("file:Logo.jpg"));
 
         initRootLayout();
         Person tempPerson = new Person();
