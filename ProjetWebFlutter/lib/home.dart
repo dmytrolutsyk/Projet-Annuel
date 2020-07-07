@@ -38,7 +38,7 @@ void home(BuildContext context) {
                 icon: const Icon(Icons.settings_power),
                 tooltip: 'Déconnexion',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.pushReplacementNamed(context, '/signin');
                 },
               )
             ],

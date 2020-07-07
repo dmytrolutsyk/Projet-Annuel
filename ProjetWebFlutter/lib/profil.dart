@@ -39,7 +39,7 @@ void profil(BuildContext context) {
                 icon: const Icon(Icons.settings_power),
                 tooltip: 'Déconnexion',
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signin');
+                  Navigator.pushReplacementNamed(context, '/signin');
                 },
               )
             ],
@@ -55,7 +55,6 @@ void profil(BuildContext context) {
                 child: Container(
                   height: 290.0,
                   width: 290.0,
-
                   child: FloatingActionButton.extended(
                     onPressed: () {
                       startWebFilePicker();
