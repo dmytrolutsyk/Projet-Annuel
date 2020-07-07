@@ -1,6 +1,6 @@
 //
 //  MessagingViewController.swift
-//  iOS
+//  Find & Trade
 //
 //  Created by Norman on 10/06/2020.
 //  Copyright © 2020 Find&Trade. All rights reserved.

@@ -13,4 +13,8 @@
     <string name="title_new_ad">Nouvelle Annonce</string>
     <string name="title_account">Account</string>
     <string name="deconnexion">Deconnexion</string>
+    <string-array name="Type">
+        <item>Don</item>
+        <item>Echange</item>
+    </string-array>
 </resources>
