@@ -96,7 +96,7 @@ void home(BuildContext context) {
                     break;
                 }
               },
-            ),
+            )
           ],
         ),
       );
