@@ -1,6 +1,10 @@
 package ch.makery.admin;
 
 import java.io.IOException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.URI;
 
 import ch.makery.admin.model.Ad;
 import ch.makery.admin.model.Connexion;
@@ -67,10 +71,17 @@ public class MainApp extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Find & Trade");
         this.primaryStage.getIcons().add(new Image("file:Logo.jpg"));
+
+        MainApp obj = new MainApp();
+
+        System.out.println("Testing 1 - Send Http GET request");
+        obj.sendGet();
+
+
 
         initRootLayout();
         //Person tempPerson = new Person();
@@ -243,4 +254,26 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    private void sendGet() throws Exception {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create("http://findandtrade.herokuapp.com/annonces/all"))
+                .header("Content-Type", "application/json")
+                .header("x-access-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZWIwM2IxZGIzNWJkMzcxYmM2NDQxN2IiLCJ1c2VybmFtZSI6ImJlcm5hcmQiLCJwYXNzd29yZCI6IiQyYiQwNSQ1NXk4WmNtVDJobVNpSFpuSFNxelguM2kyZTRlYjVWS3RNUHd4aWpwZlo2RjJjQXkzUTJHMiIsImlhdCI6MTU5NDczMDQ1MiwiZXhwIjoxNTk0ODE2ODUyfQ.s3Zvr2NI2LXx95WQJiefjSq9C38s1MwL1XUe-NijYqw")
+                .build();
+
+        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+        // print status code
+        System.out.println(response.statusCode());
+
+        // print response body
+        System.out.println(response.body());
+
+    }
+    private final HttpClient httpClient = HttpClient.newBuilder()
+            .version(HttpClient.Version.HTTP_2)
+            .build();
 }
