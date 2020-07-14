@@ -128,15 +128,15 @@
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\cours java\Projet-annuel\src\ch\makery\address\view" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\cours java\Projet-annuel\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ch.makery.address.view" />
       <recent name="ch.makery.address.model" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\cours java\Projet-annuel\src" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\cours java\Projet-annuel\src\ch\makery\address\view" />
     </key>
   </component>
   <component name="RunDashboard">
