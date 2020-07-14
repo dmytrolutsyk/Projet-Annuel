@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/signin',
         routes: {
           // When navigating to the "/" route, build the FirstScreen widget.
-          '/signin': (context) => MyHomePage(),
+          '/signin': (_) => MyHomePage(),
         },
         title: 'Find & Trade',
         theme: ThemeData(
@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Center(child: Text('Find and trade')),
+          automaticallyImplyLeading: false,
         ),
         body: Padding(
             padding: EdgeInsets.all(50),
