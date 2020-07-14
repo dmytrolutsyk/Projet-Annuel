@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-    import 'package:ProjetWebFlutter/annonces.dart';
+import 'package:ProjetWebFlutter/annonces.dart';
 
     class AnnonceItem extends StatelessWidget {
     final Annonce annonce;
