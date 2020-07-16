@@ -43,11 +43,7 @@ void profil(BuildContext context) {
                 },
               )
             ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
+        ),
           body: Column(
             children: <Widget>[
               Padding(
