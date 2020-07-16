@@ -45,12 +45,8 @@ void NewNotice(BuildContext context) {
                   Navigator.pushReplacementNamed(context, '/signin');
                 },
               )
-            ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
+            ]
+        ),
         body: Padding(
           padding: EdgeInsets.all(50),
           child: ListView(

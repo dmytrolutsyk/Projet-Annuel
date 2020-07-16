@@ -41,18 +41,17 @@ void home(BuildContext context) {
                   Navigator.pushReplacementNamed(context, '/signin');
                 },
               )
-            ],
-            leading: IconButton(
-                icon: const Icon(Icons.search),
-                tooltip: 'Rechercher une annonce',
-                onPressed: () {
-                })),
+            ]
+        ),
         body: ListView(
           children: <Widget>[
             Center(
-              child: Text(
-                'Toutes les annonces :',
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Text(
+                  'Toutes les annonces :',
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 25.0),
+                ),
               ),
             ),
             FutureBuilder(
@@ -77,13 +76,19 @@ void home(BuildContext context) {
                           child: Text("Empty list"),
                         );
                       }
-                      return ListView.builder(
-                        itemCount: annonces.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return AnnonceItem(
-                            annonce: annonces[index],
-                          );
-                        },
+                      return SizedBox(
+                        height: 1000,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(500,50, 500,0),
+                          child: ListView.builder(
+                            itemCount: annonces.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return AnnonceItems(
+                                annonce: annonces[index],
+                              );
+                            },
+                          ),
+                        ),
                       );
                     } else {
                       return Center(

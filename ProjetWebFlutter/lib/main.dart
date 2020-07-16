@@ -42,6 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,26 +65,40 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontWeight: FontWeight.w500,
                           fontSize: 30),
                     )),
-                Container(
-                  padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
-                  child: TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nom d\'utilisateur',
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(150, 10, 150, 20),
-                  child: TextField(
-                    obscureText: true,
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Mot de passe',
-                    ),
-                  ),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
+                        child: TextFormField(
+                          controller: nameController,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Nom d\'utilisateur',
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(150, 10, 150, 20),
+                        child: TextFormField(
+                          obscureText: true,
+                          controller: passwordController,
+                          /**validator: (value) {
+                            if(value.length != "") {
+                              return 'Votre mot de passe est trop petit';
+                            } else if(value.length > 20) {
+                              return 'Votre mot de passe est trop grand';
+                            }
+                          },**/
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Mot de passe',
+                          ),
+                        ),
+                      )
+                    ],
+                  )
                 ),
                 Padding(
                   padding: const EdgeInsets.all(50),
