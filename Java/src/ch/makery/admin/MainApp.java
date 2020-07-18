@@ -5,6 +5,8 @@ import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
+
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -24,6 +26,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import ch.makery.admin.model.Person;
+import netscape.javascript.JSObject;
 
 public class MainApp extends Application {
 
@@ -270,12 +273,15 @@ public class MainApp extends Application {
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-
+        //JSONObject jsonObject = new JSONObject(response.body()).getJSONObject("title");
         // print status code
         System.out.println(response.statusCode());
 
+
         // print response body
         System.out.println(response.body());
+
+
 
     }
 
@@ -283,16 +289,14 @@ public class MainApp extends Application {
 
         // form parameters
         Map<Object, Object> data = new HashMap<>();
-        data.put("username", "abc");
-        data.put("password", "123");
-        data.put("custom", "secret");
-        data.put("ts", System.currentTimeMillis());
+        //data.put("username", "bernard");
+        //data.put("password", "dyoo");
+        //data.put("ts", System.currentTimeMillis());
 
         HttpRequest request = HttpRequest.newBuilder()
                 .POST(buildFormDataFromMap(data))
-                .uri(URI.create("https://httpbin.org/post"))
-                .setHeader("User-Agent", "Java 11 HttpClient Bot") // add request header
-                .header("Content-Type", "application/x-www-form-urlencoded")
+                .uri(URI.create("http://findandtrade.herokuapp.com/signin"))
+                .header("Content-Type", "application/json")
                 .build();
 
         HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
