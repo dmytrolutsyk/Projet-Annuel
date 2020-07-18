@@ -76,29 +76,29 @@ class ListingAddViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if(photoEdit.text == ""){
             switch listingCategory {
             case "Animaux":
-               defautPhoto = "animalol"
+               defautPhoto = "https://www.cesarsway.com/wp-content/uploads/2019/06/AdobeStock_219922748-1024x682.jpeg"
             case "Bricolage":
-               defautPhoto = ""
+               defautPhoto = "https://i.pinimg.com/736x/a6/94/dd/a694ddafd90fd951a0a077cd186b3849--etagere-garage-dewalt.jpg"
             case "Electroménager":
-               defautPhoto = ""
+               defautPhoto = "https://www.maisonapart.com/images/auto/640-480-c/20180228_170750_thinkstockphotos-513631128ok.jpg"
             case "Informatique":
-               defautPhoto = ""
+               defautPhoto = "https://www.digischool.fr/images/article/le-master-informatique-lg-36795.jpg"
             case "Instruments de Musique":
-               defautPhoto = ""
+               defautPhoto = "https://www.thomann.de/blog/wp-content/uploads/2017/09/Quiz_instrument_header_770x425_b.jpg"
             case "Jardinage":
-               defautPhoto = ""
+               defautPhoto = "https://www.jardiner-malin.fr/wp-content/uploads/2020/03/Coronavirus-jardinage.jpg"
             case "Jeux & Jouets":
-               defautPhoto = ""
+               defautPhoto = "https://www.pacamomes.com/wp-content/uploads/2018/11/remise-en-jeux.jpg"
             case "Mobilier":
-               defautPhoto = ""
+               defautPhoto = "https://www.lescuisinesdarno.com/Images/amenagement-interieur/mobilier/mobilier-design-contemporain-Lyon.jpg"
             case "Multimédia":
-               defautPhoto = ""
+               defautPhoto = "https://degreesncareers.com/wp-content/uploads/2017/06/design-multimedia-1024x576.jpg"
             case "Sport":
-               defautPhoto = ""
+               defautPhoto = "https://www.sportmonde.com/wp-content/uploads/2020/04/sport.jpg"
             case "Véhicules":
-               defautPhoto = "https://s1.1zoom.me/b5050/819/Peugeot_308_White_White_background_512805_3840x2400.jp"
+               defautPhoto = "https://www.forms-surfaces.com/sites/default/files/imagecache/gal-reg-2x/images/5.5.2_bike_garden_setting_4057_05152012_1.jpg"
             case "Vêtements":
-               defautPhoto = ""
+               defautPhoto = "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
             default:
                 print("error")
             }
