@@ -8,6 +8,7 @@ void newAccount(BuildContext context) {
       builder: (BuildContext context) {
         return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Center(child: Text('Find and trade')),
           ),
           body: Padding(

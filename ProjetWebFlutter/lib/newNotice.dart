@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/profil.dart';
 import 'home.dart';
-import 'image.dart';
+import 'model/image.dart';
 
 
 
 void NewNotice(BuildContext context) {
   TextEditingController labelAnnonce = TextEditingController();
   TextEditingController description = TextEditingController();
+  TextEditingController categorie = TextEditingController();
+  TextEditingController imageUrl = TextEditingController();
   List<String> _locations = ['Echanges', 'Dons']; // Option 2
   String _selectedLocation; // Option 2
   Navigator.push(context, MaterialPageRoute(
     builder: (BuildContext context) {
       return Scaffold(
         appBar: AppBar(
+            automaticallyImplyLeading: false,
             centerTitle: true,
             title: const Text('Ajouter une annonce'),
             actions: <Widget>[
@@ -63,20 +66,14 @@ void NewNotice(BuildContext context) {
                   )
               ),
               Container(
-                  padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
-                  child: Center(
-                    child: DropdownButton<String>(
-                      hint: Text('Choisissez un type d\'annonce'),
-                      items: <String>['Echanges', 'Dons'].map((String value) {
-                        return new DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
-                        );
-                      }).toList(),
-                      onChanged: (_) {
-                      },
-                    ),
-                  )
+                padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
+                child: TextField(
+                  controller: categorie,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Catégorie de l\'annonce (Echanges/Dons)',
+                  ),
+                ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
@@ -95,6 +92,16 @@ void NewNotice(BuildContext context) {
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Description',
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
+                child: TextField(
+                  controller: description,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Url de l\'image',
                   ),
                 ),
               ),

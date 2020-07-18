@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ProjetWebFlutter/apiService.dart';
-import 'package:ProjetWebFlutter/annonces.dart';
-import 'package:ProjetWebFlutter/annonceItems.dart';
+import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/service/apiService.dart';
+import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/annonces.dart';
+import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/items/annonceItems.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'package:ProjetWebFlutter/profil.dart';
 
@@ -10,6 +10,7 @@ void home(BuildContext context) {
     builder: (BuildContext context) {
       return Scaffold(
         appBar: AppBar(
+            automaticallyImplyLeading: false,
             centerTitle: true,
             title: const Text('Annonces'),
             actions: <Widget>[

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'home.dart';
 import 'dart:html';
-import 'image.dart';
+import 'model/image.dart';
 
 
 
@@ -11,6 +11,7 @@ void profil(BuildContext context) {
     builder: (BuildContext context) {
       return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
             centerTitle: true,
             title: const Text('Profil'),
             actions: <Widget>[
