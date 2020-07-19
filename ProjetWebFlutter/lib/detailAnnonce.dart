@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/profil.dart';
 import 'home.dart';
 import 'newNotice.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/annonces.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/user.dart';
+import 'annonces.dart';
+import 'user.dart';
 
 void detailAnnonce(BuildContext context, Annonce annonce){
   Navigator.push(context, MaterialPageRoute(

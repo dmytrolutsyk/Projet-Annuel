@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/service/apiService.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/annonces.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/items/annonceItems.dart';
+import 'apiService.dart';
+import 'annonces.dart';
+import 'annonceItems.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'package:ProjetWebFlutter/profil.dart';
 

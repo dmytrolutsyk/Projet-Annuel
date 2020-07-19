@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/newNotice.dart';
 import 'home.dart';
 import 'dart:html';
-import 'model/image.dart';
+import 'image.dart';
 
 
 

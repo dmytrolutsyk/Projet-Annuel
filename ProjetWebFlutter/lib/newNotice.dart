@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ProjetWebFlutter/profil.dart';
 import 'home.dart';
-import 'model/image.dart';
+import 'image.dart';
 
 
 

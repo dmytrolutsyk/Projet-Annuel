@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/annonces.dart';
-import '../detailAnnonce.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/user.dart';
+import 'annonces.dart';
+import 'detailAnnonce.dart';
+import 'user.dart';
 
     class AnnonceItems extends StatelessWidget {
     final Annonce annonce;

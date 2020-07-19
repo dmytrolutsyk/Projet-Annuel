@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/annonces.dart';
-import 'file:///C:/Users/rapha/OneDrive/Documents/Projet%20annuel/Projet-Annuel/ProjetWebFlutter/lib/model/user.dart';
+import 'annonces.dart';
+import 'user.dart';
 import 'package:http/http.dart' as http;
 
 class ApiServices {
