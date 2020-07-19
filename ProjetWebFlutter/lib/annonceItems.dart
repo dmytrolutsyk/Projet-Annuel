@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'annonces.dart';
 import 'detailAnnonce.dart';
 import 'user.dart';
+import 'dart:convert' show json, base64, ascii;
 
-    class AnnonceItems extends StatelessWidget {
+class AnnonceItems extends StatelessWidget {
     final Annonce annonce;
     final User user;
 

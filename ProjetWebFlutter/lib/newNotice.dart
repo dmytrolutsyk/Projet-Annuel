@@ -68,20 +68,20 @@ void NewNotice(BuildContext context) {
               Container(
                 padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
                 child: TextField(
-                  controller: categorie,
+                  controller: labelAnnonce,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Catégorie de l\'annonce (Echanges/Dons)',
+                    labelText: 'Titre',
                   ),
                 ),
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
                 child: TextField(
-                  controller: labelAnnonce,
+                  controller: categorie,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Nom du produit',
+                    labelText: 'Catégorie de l\'annonce (Echanges/Dons)',
                   ),
                 ),
               ),
@@ -98,7 +98,7 @@ void NewNotice(BuildContext context) {
               Container(
                 padding: EdgeInsets.fromLTRB(150, 30, 150, 20),
                 child: TextField(
-                  controller: description,
+                  controller: imageUrl,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Url de l\'image',
@@ -125,6 +125,7 @@ void NewNotice(BuildContext context) {
                         color: Colors.green,
                         child: Text('Ajouter'),
                         onPressed: () {
+
                         },
                       ),
                     )),

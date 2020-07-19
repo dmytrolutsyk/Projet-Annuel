@@ -47,23 +47,33 @@ void profil(BuildContext context) {
         ),
           body: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(100.0),
-                child: Container(
-                  height: 290.0,
-                  width: 290.0,
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      startWebFilePicker();
-                    },
-                    icon: Icon(
-                        Icons.account_circle,
-                      size: 80,
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(100.0),
+                    child: Container(
+                      height: 290.0,
+                      width: 290.0,
+                      child: FloatingActionButton.extended(
+                        onPressed: () {
+                          startWebFilePicker();
+                        },
+                        icon: Icon(
+                            Icons.account_circle,
+                          size: 80,
+                        ),
+                        shape: RoundedRectangleBorder(),
+                        label: Text("Choisir une photo de profil"),
+                      ),
                     ),
-                    shape: RoundedRectangleBorder(),
-                    label: Text("Choisir une photo de profil"),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(100.0),
+                    child: Text(
+                      "Information sur votre compte"
+                    ),
+                  ),
+                ],
               ),
             ],
           )
